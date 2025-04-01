@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: CurrencyMateTgBot
+
+bot:
+  username: ${BOT_USERNAME:original_currency_mate_bot}
+  token: ${BOT_TOKEN}
+
+app:
+  adapter:
+    currencymate:
+      url: ${CURRENCYMATE_URL:http://34.30.144.246:80}
+      connectTimeoutMs: ${CURRENCYMATE_CONNECT_TIMEOUT_MS:10000} # ms
+      readTimeoutMs: ${CURRENCYMATE_READ_TIMEOUT_MS:30000} # ms

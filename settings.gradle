@@ -1,0 +1,16 @@
+pluginManagement {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+rootProject.name = 'currency-mate-tgbot'
+
+gradle.beforeProject {
+    logger.lifecycle("Configuring project ${rootProject.name}")
+}
+
+include ':adapter-currencymate'
+
+project(':adapter-currencymate').projectDir = file('modules/adapters/adapter-currencymate')

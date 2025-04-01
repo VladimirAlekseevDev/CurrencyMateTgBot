@@ -1,0 +1,101 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version "$springBootVersion"
+    id 'io.spring.dependency-management' version "$dependencyManagementVersion"
+    id "org.sonarqube" version "$sonarqubeVersion"
+}
+
+group = 'dev.sgd.currencymate'
+version = '0.0.1'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+allprojects {
+
+    apply plugin: 'java-library'
+    apply plugin: 'org.sonarqube'
+
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = 'UTF-8'
+    }
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(21)
+        }
+    }
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        annotationProcessor (
+                "org.projectlombok:lombok:$lombokVersion",
+                "org.mapstruct:mapstruct-processor:$mapstructVersion"
+        )
+
+        compileOnly (
+                "org.projectlombok:lombok:$lombokVersion"
+        )
+        implementation(
+                "org.springframework.boot:spring-boot-starter:$springBootVersion",
+                "org.springframework.boot:spring-boot-starter-logging",
+
+//                "ch.qos.logback:logback-core:$logbackVersion",
+//                "ch.qos.logback:logback-classic:$logbackVersion",
+//                "net.logstash.logback:logstash-logback-encoder:8.0",
+
+                "org.mapstruct:mapstruct:$mapstructVersion",
+                "org.apache.commons:commons-lang3:$commonsLang3Version"
+        )
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
+    }
+
+}
+
+dependencies {
+    implementation(
+            project(":adapter-currencymate"),
+
+
+            "org.telegram:telegrambots:6.9.7.1",
+
+            "org.springframework.boot:spring-boot-starter-web:$springBootVersion",
+            "org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j",
+
+             /* Monitoring and Management */
+            "org.springframework.boot:spring-boot-starter-actuator",
+            "io.micrometer:micrometer-registry-prometheus",
+    )
+
+    testImplementation (
+            "org.springframework.boot:spring-boot-starter-test"
+    )
+
+    testRuntimeOnly (
+            "org.junit.platform:junit-platform-launcher"
+    )
+
+    testCompileOnly(
+            "org.projectlombok:lombok:$lombokVersion"
+    )
+
+    testAnnotationProcessor(
+            "org.projectlombok:lombok:$lombokVersion"
+    )
+}
+
+tasks.named("test") {
+    useJUnitPlatform()
+}
