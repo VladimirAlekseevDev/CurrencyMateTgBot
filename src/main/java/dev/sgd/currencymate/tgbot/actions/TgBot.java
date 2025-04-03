@@ -13,37 +13,35 @@ import java.math.RoundingMode;
 import java.text.NumberFormat;
 import java.util.Locale;
 
+/*
+    📈💎 Крипта:
+
+    🪙 ₿ Биткоин (BTC) - $ Доллар (USD):  %s $
+
+    🪙 Ξ Эфириум - $ Доллар (USD):  %s $
+*/
 @Component
 public class TgBot extends TelegramLongPollingBot {
 
     private static final String text =
     """   
     Привет, друг! 👋✨
-    
     Лови свежие курсы валют и крипты, чтобы быть в теме! 📊💹
-    Мы собрали всё самое важное, чтобы ты мог легко ориентироваться в мире финансов 📈
     
     📈💎 Крипта:
-    
+
     🪙 ₿ Биткоин (BTC) - $ Доллар (USD):  %s $
-    
     🪙 Ξ Эфириум - $ Доллар (USD):  %s $
-    
     
     💰🌍 Фиатные валюты:
     
     💵 $ Доллар (USD) - ₽ Рубль (RUB):  %s ₽
-    
     💶 € Евро (EUR) - ₽ Рубль (RUB):  %s ₽
     
-    
     💵 $ Доллар (USD) - ₺ Турецкая лира (TRY):  %s
-    
     💶 € Евро (EUR) - ₺ Турецкая лира (TRY):  %s
     
-    
     💵 $ Доллар (USD) - ₾ Грузинский лари (GEL):  %s
-    
     💶 € Евро (EUR) - ₾ Грузинский лари (GEL):  %s
     
     Желаем тебе крутого дня, отличного настроения и только удачных финансовых решений! 🌈🚀
@@ -75,8 +73,9 @@ public class TgBot extends TelegramLongPollingBot {
             SendMessage newMessage = new SendMessage();
             newMessage.setChatId(update.getMessage().getChatId());
             newMessage.setText(getFormattedText());
+
             try {
-                execute(newMessage);
+                executeAsync(newMessage);
             } catch (TelegramApiException e) {
                 throw new RuntimeException(e);
             }

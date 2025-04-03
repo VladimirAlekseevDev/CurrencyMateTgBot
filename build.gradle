@@ -33,6 +33,11 @@ allprojects {
         mavenCentral()
     }
 
+    tasks.withType(JavaCompile).configureEach {
+        options.fork = true
+        options.incremental = true
+    }
+
     dependencies {
         annotationProcessor (
                 "org.projectlombok:lombok:$lombokVersion",
@@ -46,9 +51,9 @@ allprojects {
                 "org.springframework.boot:spring-boot-starter:$springBootVersion",
                 "org.springframework.boot:spring-boot-starter-logging",
 
-//                "ch.qos.logback:logback-core:$logbackVersion",
-//                "ch.qos.logback:logback-classic:$logbackVersion",
-//                "net.logstash.logback:logstash-logback-encoder:8.0",
+                "ch.qos.logback:logback-core:$logbackVersion",
+                "ch.qos.logback:logback-classic:$logbackVersion",
+                "net.logstash.logback:logstash-logback-encoder:8.0",
 
                 "org.mapstruct:mapstruct:$mapstructVersion",
                 "org.apache.commons:commons-lang3:$commonsLang3Version"
