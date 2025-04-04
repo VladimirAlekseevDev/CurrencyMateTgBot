@@ -75,9 +75,6 @@ dependencies {
             project(":service"),
             project(":adapter-currencymate"),
 
-
-            "org.telegram:telegrambots:$telegrambotsVersion",
-
             "org.springframework.boot:spring-boot-starter-web:$springBootVersion",
             "org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j",
 
