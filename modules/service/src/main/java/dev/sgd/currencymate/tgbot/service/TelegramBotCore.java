@@ -1,6 +1,7 @@
 package dev.sgd.currencymate.tgbot.service;
 
 import dev.sgd.currencymate.tgbot.adapter.currencymate.AdapterCurrencymate;
+import dev.sgd.currencymate.tgbot.domain.CurrencyMateTelegramBot;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -21,7 +22,7 @@ import java.util.Locale;
     🪙 Ξ Эфириум - $ Доллар (USD):  %s $
 */
 @Component
-public class TelegramBotCore extends TelegramLongPollingBot {
+public class TelegramBotCore extends TelegramLongPollingBot implements CurrencyMateTelegramBot {
 
     private static final String text =
     """   

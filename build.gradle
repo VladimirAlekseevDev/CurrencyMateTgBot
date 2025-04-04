@@ -72,6 +72,7 @@ allprojects {
 dependencies {
     implementation(
             project(":domain"),
+            project(":telegram-api"),
             project(":service"),
             project(":adapter-currencymate"),
 

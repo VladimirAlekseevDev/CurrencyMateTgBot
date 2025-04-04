@@ -1,0 +1,6 @@
+dependencies {
+    implementation(
+            "org.telegram:telegrambots:$telegrambotsVersion",
+            "commons-codec:commons-codec:$commonsCodecVersion"
+    )
+}

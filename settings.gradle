@@ -12,9 +12,11 @@ gradle.beforeProject {
 }
 
 include ':domain'
+include ':telegram-api'
 include ':service'
 include ':adapter-currencymate'
 
 project(':domain').projectDir = file('modules/domain')
+project(':telegram-api').projectDir = file('modules/api/telegram-api')
 project(':service').projectDir = file('modules/service')
 project(':adapter-currencymate').projectDir = file('modules/adapters/adapter-currencymate')
