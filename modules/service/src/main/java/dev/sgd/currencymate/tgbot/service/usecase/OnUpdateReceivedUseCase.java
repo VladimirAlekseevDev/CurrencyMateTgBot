@@ -23,7 +23,7 @@ public class OnUpdateReceivedUseCase {
         }
 
         MessageHandler messageHandler = messageHandlers.stream()
-                .filter(mh -> mh.canHandle(update))
+                .filter(handler -> handler.canHandle(update))
                 .findFirst()
                 .orElseThrow(() -> new TelegramApiException("Unknown command: " + update.getMessage().getText()));
 

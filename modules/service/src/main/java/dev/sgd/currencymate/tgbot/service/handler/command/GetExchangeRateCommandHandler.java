@@ -38,8 +38,13 @@ public class GetExchangeRateCommandHandler implements CommandHandler {
             💵 $ Доллар (USD) - ₾ Грузинский лари (GEL):  %s
             💶 € Евро (EUR) - ₾ Грузинский лари (GEL):  %s
             
-            Желаем тебе крутого дня, отличного настроения и только удачных финансовых решений! 🌈🚀
+            💵 $ Доллар (USD) - ฿ Тайский бат (THB):  %s
+            💶 € Евро (EUR) - ฿ Тайский бат (THB):  %s
+            
+            Желаю тебе крутого дня, отличного настроения и только удачных финансовых решений! 🌈🚀
             Ты молодец, что следишь за курсами! 😎✨
+            
+            Получениить курсы валют и крипты можно используя команду /get_exchange_rates
             """;
 
     private final AdapterCurrencymate adapterCurrencymate;
@@ -68,8 +73,17 @@ public class GetExchangeRateCommandHandler implements CommandHandler {
         String eurTRY = getExchangeRate("EUR", "TRY");
         String usdGEL = getExchangeRate("USD", "GEL");
         String eurGEL = getExchangeRate("EUR", "GEL");
+        String usdTHB = getExchangeRate("USD", "THB");
+        String eurTHB = getExchangeRate("EUR", "THB");
 
-        return String.format(text, btc, eth, usdRUB, eurRUB, usdTRY, eurTRY, usdGEL, eurGEL);
+        return String.format(
+                text,
+                btc, eth,
+                usdRUB, eurRUB,
+                usdTRY, eurTRY,
+                usdGEL, eurGEL,
+                usdTHB, eurTHB
+        );
     }
 
     private String getExchangeRate(String from, String to) {
