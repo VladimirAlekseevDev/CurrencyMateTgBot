@@ -71,6 +71,7 @@ allprojects {
 
 dependencies {
     implementation(
+            project(":service"),
             project(":adapter-currencymate"),
 
 

@@ -9,7 +9,7 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 @SpringBootTest
 class ApplicationContextLoadsTest {
 
-    @MockBean
+    @MockitoBean
     private CommandLineRunner commandLineRunner;
 
     @Test

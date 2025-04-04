@@ -11,6 +11,8 @@ gradle.beforeProject {
     logger.lifecycle("Configuring project ${rootProject.name}")
 }
 
+include ':service'
 include ':adapter-currencymate'
 
+project(':service').projectDir = file('modules/service')
 project(':adapter-currencymate').projectDir = file('modules/adapters/adapter-currencymate')
