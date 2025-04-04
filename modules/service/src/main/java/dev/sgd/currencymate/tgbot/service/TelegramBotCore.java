@@ -1,4 +1,4 @@
-package dev.sgd.currencymate.tgbot;
+package dev.sgd.currencymate.tgbot.service;
 
 import dev.sgd.currencymate.tgbot.adapter.currencymate.AdapterCurrencymate;
 import org.springframework.beans.factory.annotation.Value;

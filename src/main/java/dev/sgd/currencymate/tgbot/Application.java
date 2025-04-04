@@ -1,5 +1,6 @@
 package dev.sgd.currencymate.tgbot;
 
+import dev.sgd.currencymate.tgbot.service.TelegramBotCore;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
