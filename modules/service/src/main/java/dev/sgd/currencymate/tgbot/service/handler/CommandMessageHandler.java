@@ -23,6 +23,8 @@ import static java.util.stream.Collectors.toMap;
 @Component
 public class CommandMessageHandler implements MessageHandler {
 
+    private static final String COMMAND_PREFIX = "/";
+
     private static final Set<Command> COMMANDS = EnumSet.allOf(Command.class);
     private static final Set<String> COMMAND_CODES = COMMANDS.stream().
             map(Command::getCode)
@@ -50,7 +52,7 @@ public class CommandMessageHandler implements MessageHandler {
         Message message = update.getMessage();
 
         return message.isCommand()
-                && message.getText().startsWith("/")
+                && message.getText().startsWith(COMMAND_PREFIX)
                 && COMMAND_CODES.contains(message.getText());
     }
 
@@ -59,7 +61,7 @@ public class CommandMessageHandler implements MessageHandler {
         return COMMANDS.stream()
                 .filter(command -> command.getCode().equals(commandCode))
                 .findFirst()
-                .orElseThrow(() -> new TelegramApiException("Unknown command: " + commandCode));
+                .orElseThrow();
 
     }
 

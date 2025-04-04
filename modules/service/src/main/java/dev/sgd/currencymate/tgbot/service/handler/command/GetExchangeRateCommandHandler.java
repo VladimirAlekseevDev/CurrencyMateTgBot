@@ -87,9 +87,9 @@ public class GetExchangeRateCommandHandler implements CommandHandler {
     }
 
     private String getExchangeRate(String from, String to) {
-        BigDecimal rate = adapterCurrencymate.getExchangeRate(from, to).getRate();
-
-        return FormattingUtils.getFormatted(rate);
+        return FormattingUtils.getFormatted(
+                adapterCurrencymate.getExchangeRate(from, to).getRate()
+        );
     }
 
 }
