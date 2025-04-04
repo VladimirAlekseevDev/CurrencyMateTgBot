@@ -79,7 +79,7 @@ springdoc:
 
 bot:
   username: ${CURRENCY_MATE_TG_BOT_USERNAME:original_currency_mate_bot}
-  token: ${CURRENCY_MATE_TG_BOT_TOKEN}
+  token: ${CURRENCY_MATE_TG_BOT_TOKEN:token}
 
 app:
   adapter:
