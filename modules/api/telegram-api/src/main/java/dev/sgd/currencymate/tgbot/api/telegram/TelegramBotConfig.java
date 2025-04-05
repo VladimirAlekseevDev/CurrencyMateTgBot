@@ -1,4 +1,4 @@
-package dev.sgd.currencymate.api.telegram;
+package dev.sgd.currencymate.tgbot.api.telegram;
 
 import dev.sgd.currencymate.tgbot.domain.CurrencyMateTelegramBot;
 import lombok.extern.slf4j.Slf4j;
@@ -20,7 +20,7 @@ public class TelegramBotConfig {
             TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
             telegramBotsApi.registerBot(telegramBotApi);
 
-            log.info("Tg Bot Application Default Time Zone: {}", TimeZone.getDefault().getID());
+            log.info("Currency Mate Telegram Bot Application Default Time Zone: {}", TimeZone.getDefault().getID());
         };
     }
 

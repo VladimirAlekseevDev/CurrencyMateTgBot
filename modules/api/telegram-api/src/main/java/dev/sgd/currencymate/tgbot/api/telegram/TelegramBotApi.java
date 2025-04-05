@@ -1,4 +1,4 @@
-package dev.sgd.currencymate.api.telegram;
+package dev.sgd.currencymate.tgbot.api.telegram;
 
 import dev.sgd.currencymate.tgbot.domain.CurrencyMateTelegramBot;
 import dev.sgd.currencymate.tgbot.service.usecase.OnUpdateReceivedUseCase;
