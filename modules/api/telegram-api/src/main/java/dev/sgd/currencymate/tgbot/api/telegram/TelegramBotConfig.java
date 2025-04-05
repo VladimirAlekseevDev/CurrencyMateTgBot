@@ -14,13 +14,18 @@ import java.util.TimeZone;
 @Configuration
 public class TelegramBotConfig {
 
+    private static final String BOT_REGISTERED_MSG =
+            """
+            🚀 Currency Mate Telegram Bot successfully registered, let's get started! 🌟
+            """;
+
     @Bean
     public CommandLineRunner commandLineRunner(CurrencyMateTelegramBot telegramBotApi) {
         return args -> {
             TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
             telegramBotsApi.registerBot(telegramBotApi);
 
-            log.info("Currency Mate Telegram Bot Application Default Time Zone: {}", TimeZone.getDefault().getID());
+            log.info(BOT_REGISTERED_MSG);
         };
     }
 

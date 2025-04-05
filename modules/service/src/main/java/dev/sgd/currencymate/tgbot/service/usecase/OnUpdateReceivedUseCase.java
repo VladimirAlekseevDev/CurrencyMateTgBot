@@ -20,6 +20,9 @@ public class OnUpdateReceivedUseCase {
     private static final String UNKNOWN_COMMAND_TEXT =
             """
             К сожалению такой команды я пока не знаю 😿🫠
+            
+            📋 Знаю такие команды:
+            1️⃣ /get_exchange_rates - получить курсы валют и крипты 📈
             """;
 
 
@@ -30,21 +33,31 @@ public class OnUpdateReceivedUseCase {
         if (!update.hasMessage()
                 || FALSE.equals(update.getMessage().hasText())
                 || update.getMessage().getText().isBlank()) {
-            SendMessage newMessage = new SendMessage();
-            newMessage.setChatId(update.getMessage().getChatId());
-            newMessage.setText(UNKNOWN_COMMAND_TEXT);
-            // newMessage.setReplyMarkup(); TODO
 
-            telegramBot.executeAsync(newMessage);
+            sendUnknownCommandMessage(update, telegramBot);
             return;
         }
 
         MessageHandler messageHandler = messageHandlers.stream()
                 .filter(handler -> handler.canHandle(update))
                 .findFirst()
-                .orElseThrow(() -> new TelegramApiException("Unknown command: " + update.getMessage().getText()));
+                .orElse(null);
+
+        if (messageHandler == null) {
+            sendUnknownCommandMessage(update, telegramBot);
+            return;
+        }
 
         messageHandler.handle(update, telegramBot);
+    }
+
+    private void sendUnknownCommandMessage(Update update, CurrencyMateTelegramBot telegramBot) {
+        SendMessage newMessage = new SendMessage();
+        newMessage.setText(UNKNOWN_COMMAND_TEXT);
+        newMessage.setChatId(update.getMessage().getChatId());
+        // newMessage.setReplyMarkup(); TODO
+
+        telegramBot.executeAsync(newMessage);
     }
 
 }
