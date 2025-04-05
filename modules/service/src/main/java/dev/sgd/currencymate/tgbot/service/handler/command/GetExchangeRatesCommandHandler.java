@@ -19,31 +19,31 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class GetExchangeRateCommandHandler implements CommandHandler {
+public class GetExchangeRatesCommandHandler implements CommandHandler {
 
     private static final String text =
             """   
             Привет, друг! 👋✨
-            Лови свежие курсы валют и крипты, чтобы быть в теме! 📊💹
+            Лови свежие курсы валют и крипты, чтобы быть в теме! 💸💹
             
             💰🌍 Фиатные валюты:
             
-            💵 $ Доллар (USD) - ₽ Рубль (RUB):  %s ₽
-            💶 € Евро (EUR) - ₽ Рубль (RUB):  %s ₽
+            💵 USD → ₽ RUB: %s \s
+            💶 EUR → ₽ RUB: %s
             
-            💵 $ Доллар (USD) - ₺ Турецкая лира (TRY):  %s
-            💶 € Евро (EUR) - ₺ Турецкая лира (TRY):  %s
+            💵 USD → ₺ TRY: %s \s
+            💶 EUR → ₺ TRY: %s
             
-            💵 $ Доллар (USD) - ₾ Грузинский лари (GEL):  %s
-            💶 € Евро (EUR) - ₾ Грузинский лари (GEL):  %s
+            💵 USD → ₾ GEL: %s \s
+            💶 EUR → ₾ GEL: %s
             
-            💵 $ Доллар (USD) - ฿ Тайский бат (THB):  %s
-            💶 € Евро (EUR) - ฿ Тайский бат (THB):  %s
+            💵 USD → ฿ THB: %s \s
+            💶 EUR → ฿ THB: %s
             
-            Желаю тебе крутого дня, отличного настроения и только удачных финансовых решений! 🌈🚀
+            Желаю тебе крутого дня, отличного настроения и чтобы всё было на позитиве, а финансы — в порядке 🌈🚀
             Ты молодец, что следишь за курсами! 😎✨
             
-            Получениить курсы валют и крипты можно используя команду /get_exchange_rates
+            📲 Используй команду /get_exchange_rates чтобы получить актуальтую информацию о курсах!
             """;
 
     private final AdapterCurrencymate adapterCurrencymate;
