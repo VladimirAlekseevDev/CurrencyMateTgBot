@@ -8,8 +8,6 @@ import org.springframework.context.annotation.Configuration;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
-import java.util.TimeZone;
-
 @Slf4j
 @Configuration
 public class TelegramBotConfig {
