@@ -10,12 +10,6 @@ import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
-/* TODO
-📈💎 Крипта:
-
-🪙 ₿ Биткоин (BTC) - $ Доллар (USD):  %s $
-🪙 Ξ Эфириум - $ Доллар (USD):  %s $
-*/
 @Slf4j
 @Component
 @RequiredArgsConstructor
@@ -26,18 +20,23 @@ public class GetExchangeRatesCommandHandler implements CommandHandler {
             Привет, друг! 👋✨
             Лови свежие курсы валют и крипты, чтобы быть в теме! 💸💹
             
+            📈💎 Крипта:
+            
+            🪙 ₿ Биткоин (BTC) - $ Доллар (USD):  %s $
+            🪙 Ξ Эфириум - $ Доллар (USD):  %s $
+            
             💰🌍 Фиатные валюты:
             
-            💵 USD → ₽ RUB: %s \s
+            💵 USD → ₽ RUB: %s
             💶 EUR → ₽ RUB: %s
             
-            💵 USD → ₺ TRY: %s \s
+            💵 USD → ₺ TRY: %s
             💶 EUR → ₺ TRY: %s
             
-            💵 USD → ₾ GEL: %s \s
+            💵 USD → ₾ GEL: %s
             💶 EUR → ₾ GEL: %s
             
-            💵 USD → ฿ THB: %s \s
+            💵 USD → ฿ THB: %s
             💶 EUR → ฿ THB: %s
             
             Желаю тебе крутого дня, отличного настроения и чтобы всё было на позитиве, а финансы — в порядке 🌈🚀
@@ -64,8 +63,8 @@ public class GetExchangeRatesCommandHandler implements CommandHandler {
     }
 
     private String getFormattedText() {
-//        String btc = getExchangeRate("BTC", "USD"); TODO
-//        String eth = getExchangeRate("ETH", "USD");
+        String btc = getExchangeRate("BTC", "USD");
+        String eth = getExchangeRate("ETH", "USD");
         String usdRUB = getExchangeRate("USD", "RUB");
         String eurRUB = getExchangeRate("EUR", "RUB");
         String usdTRY = getExchangeRate("USD", "TRY");
@@ -77,7 +76,7 @@ public class GetExchangeRatesCommandHandler implements CommandHandler {
 
         return String.format(
                 text,
-//                btc, eth, TODO
+                btc, eth,
                 usdRUB, eurRUB,
                 usdTRY, eurTRY,
                 usdGEL, eurGEL,
