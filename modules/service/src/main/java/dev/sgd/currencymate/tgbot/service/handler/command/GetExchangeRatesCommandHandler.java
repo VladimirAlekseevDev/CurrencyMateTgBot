@@ -22,22 +22,22 @@ public class GetExchangeRatesCommandHandler implements CommandHandler {
             
             📈💎 Крипта:
             
-            🪙 ₿ Биткоин (BTC) - $ Доллар (USD):  %s $
-            🪙 Ξ Эфириум - $ Доллар (USD):  %s $
+            💫 ₿ BTC → USD:  %s $
+            💫 Ξ ETH - USD:  %s $
             
             💰🌍 Фиатные валюты:
             
-            💵 USD → ₽ RUB: %s
-            💶 EUR → ₽ RUB: %s
+            💵 USD → RUB: %s ₽
+            💶 EUR → RUB: %s ₽
             
-            💵 USD → ₺ TRY: %s
-            💶 EUR → ₺ TRY: %s
+            💵 USD → TRY: %s ₺
+            💶 EUR → TRY: %s ₺
             
-            💵 USD → ₾ GEL: %s
-            💶 EUR → ₾ GEL: %s
+            💵 USD → GEL: %s ₾
+            💶 EUR → GEL: %s ₾
             
-            💵 USD → ฿ THB: %s
-            💶 EUR → ฿ THB: %s
+            💵 USD → THB: %s ฿
+            💶 EUR → THB: %s ฿
             
             Желаю тебе крутого дня, отличного настроения и чтобы всё было на позитиве, а финансы — в порядке 🌈🚀
             Ты молодец, что следишь за курсами! 😎✨
