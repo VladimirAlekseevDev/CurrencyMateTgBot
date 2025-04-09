@@ -22,8 +22,11 @@ public class GetExchangeRatesCommandHandler implements CommandHandler {
             
             📈💎 Крипта:
             
-            💫 ₿ BTC → USD:  %s $
-            💫 Ξ ETH - USD:  %s $
+            ₿ BTC → USD:  %s $
+            Ξ ETH - USD:  %s $
+            ☀️ SOL - USD:  %s $
+            🐶 DOGE → USD:  %s $
+            🐸 TON → USD:   %s $
             
             💰🌍 Фиатные валюты:
             
@@ -65,6 +68,10 @@ public class GetExchangeRatesCommandHandler implements CommandHandler {
     private String getFormattedText() {
         String btc = getExchangeRate("BTC", "USD");
         String eth = getExchangeRate("ETH", "USD");
+        String sol = getExchangeRate("SOL", "USD");
+        String doge = getExchangeRate("DOGE", "USD");
+        String ton = getExchangeRate("TON", "USD");
+
         String usdRUB = getExchangeRate("USD", "RUB");
         String eurRUB = getExchangeRate("EUR", "RUB");
         String usdTRY = getExchangeRate("USD", "TRY");
@@ -76,7 +83,7 @@ public class GetExchangeRatesCommandHandler implements CommandHandler {
 
         return String.format(
                 text,
-                btc, eth,
+                btc, eth, sol, doge, ton,
                 usdRUB, eurRUB,
                 usdTRY, eurTRY,
                 usdGEL, eurGEL,
